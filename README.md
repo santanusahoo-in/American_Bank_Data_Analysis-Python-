@@ -115,16 +115,21 @@ max	3994.000000	64.000000
 df['balance'] = df['balance'].astype(str).str.replace('$', '').str.replace(',', '', regex=False)
 df['balance'] = pd.to_numeric(df['balance'])
 ```
-
-# Make sure you sum only the 'balance' column
+#### Make sure sum only the 'balance' column
+```py
 total_balance = df['balance'].sum()
-
-# Print in proper format with commas
+```
+#### Print in proper format with commas
+```py
 print("Total balance: {:,.2f}".format(total_balance))
 Total balance: 236,926,531.58
+```
+```py
 total_customers = df.shape[0]
 print("Total customers:", total_customers)
 Total customers: 3994
+```
+```py
 customer_count = df['state'].value_counts().reset_index()
 customer_count.columns = ['state', 'total_customers']
 print(customer_count)
@@ -133,44 +138,55 @@ print(customer_count)
 1      Nevada             1115
 2     Wyoming              516
 3      Oregon              211
+```
+```py
 df['marital'].value_counts()
 marital
 married     2486
 single      1054
 divorced     454
 Name: count, dtype: int64
+```
+```py
 avg_balance = df['balance'].mean()
 print("Average balance: {:,.2f}".format(avg_balance))
 Average balance: 59,320.61
+```
+```py
 gender_counts = df['gender'].value_counts().reset_index()
 gender_counts.columns = ['gender', 'total_customers']
 print(gender_counts)
    gender  total_customers
 0    Male             2152
 1  Female             1842
-# Total balance by gender
+```
+#### Total balance by gender
+```py
 gender_balance = df.groupby('gender')['balance'].sum().reset_index()
-
-# Pretty print
 print(gender_balance)
    gender       balance
 0  Female  1.083359e+08
 1    Male  1.285906e+08
-# Total balance by job classification
+```
+#### Total balance by job classification
+```py
 job_balance = df.groupby('job_classification')['balance'].sum().reset_index()
-
 print(job_balance)
   job_classification       balance
 0        Blue Collar  6.125762e+07
 1              Other  5.955568e+07
 2       White Collar  1.161132e+08
-# Make sure date_joined is datetime
+```
+#### Make sure date_joined is datetime
+```py
 df['date_joined'] = pd.to_datetime(df['date_joined'], errors='coerce')
-
-# Create new columns
+```
+#### Create new columns
+```py
 df['month_num'] = df['date_joined'].dt.month
 df['month_name'] = df['date_joined'].dt.strftime('%B')   # Full month name
-
+```
+```py
 df.head(5)
 customer_id	full_name	gender	age	state	job_classification	date_joined	balance	marital	education	houseloan	otherloan	contact	poutcome	loan_default	month_num	month_name
 0	1	Christy Olson	Male	21	California	White Collar	2017-01-05	169864.42	married	primary	no	no	cellular	unknown	no	1	January
@@ -178,30 +194,29 @@ customer_id	full_name	gender	age	state	job_classification	date_joined	balance	ma
 2	3	Mable Lindsey	Male	46	California	White Collar	2017-01-07	151546.03	single	tertiary	yes	no	cellular	failure	no	1	January
 3	4	Kyle Carr	Male	32	Wyoming	White Collar	2017-01-08	2120.19	married	tertiary	yes	yes	unknown	unknown	no	1	January
 4	5	Rachel Gomez	Female	38	California	Blue Collar	2017-01-09	53192.24	married	secondary	yes	no	unknown	unknown	no	1	January
+```
+#### Create CSV file
+```py
 df.to_csv("AB_final.csv", index=False)
+```
+```py
 df.columns
 Index(['customer_id', 'full_name', 'gender', 'age', 'state',
        'job_classification', 'date_joined', 'balance', 'marital', 'education',
        'houseloan', 'otherloan', 'contact', 'poutcome', 'loan_default',
        'month_num', 'month_name'],
       dtype='object')
-1. Total Balance Distribution Across U.S. States
+```
+### 1. Total Balance Distribution Across U.S. States
 Goal: Compare the total account balances across U.S. states to identify which states hold the highest financial balance concentration.
-
 Chart:
-
-Choropleth Map – showing geographic distribution of balances by U.S. state.
-
-Bar Chart – ranking states by their total balance with values labeled.
-
+- Choropleth Map – showing geographic distribution of balances by U.S. state.
+- Bar Chart – ranking states by their total balance with values labeled.
 EDA Type: Bivariate (categorical: State vs. numerical: Balance).
-
 Structure:
-
-The map uses a color gradient (yellow = high, purple = low) to visually show balance intensity per state.
-
-The bar chart displays four states explicitly: California (130M), Nevada (66M), Wyoming (33M), and Oregon (12M). Values are annotated above the bars for easy comparison.
-
+- The map uses a color gradient (yellow = high, purple = low) to visually show balance intensity per state.
+- The bar chart displays four states explicitly: California (130M), Nevada (66M), Wyoming (33M), and Oregon (12M). Values are annotated above the bars for easy comparison.
+```py
 import pandas as pd
 import plotly.express as px
 
@@ -268,32 +283,23 @@ fig_bar.write_image("total_balance_bar.png")
 # Show both interactive charts
 fig_map.show()
 fig_bar.show()
-Insights:
-California dominates with nearly double the balance of Nevada, indicating it is the largest concentration of funds.
+```
+####Insights:
+- California dominates with nearly double the balance of Nevada, indicating it is the largest concentration of funds.
+- Nevada holds a strong second position but far behind California.
+- Wyoming and Oregon lag significantly, holding comparatively minor balances.
+- The geographical visualization reinforces that the western states carry the majority of balances in this dataset.
 
-Nevada holds a strong second position but far behind California.
-
-Wyoming and Oregon lag significantly, holding comparatively minor balances.
-
-The geographical visualization reinforces that the western states carry the majority of balances in this dataset.
-
-2. Balance Distribution by Gender
+### 2. Balance Distribution by Gender
 Goal: Understand how total account balances are distributed between male and female customers.
-
 Chart: Donut Pie Chart – dividing total balance into male and female proportions.
-
 EDA Type: Univariate categorical analysis (Gender → Balance).
-
 Structure:
-
-Two categories: Male and Female.
-
-Male: 128.6M (54.3%) shown in blue.
-
-Female: 108.3M (45.7%) shown in red.
-
-Percentage labels and exact values are displayed inside the chart for clarity.
-
+- Two categories: Male and Female.
+- Male: 128.6M (54.3%) shown in blue.
+- Female: 108.3M (45.7%) shown in red.
+- Percentage labels and exact values are displayed inside the chart for clarity.
+```py
 import plotly.express as px
 
 # Aggregate balance by gender
@@ -368,6 +374,7 @@ fig_job_pie.write_image("balance_by_job_classification_pie.png")
 
 # Show chart
 fig_job_pie.show()
+```
 Insights:
 White Collar employees dominate the distribution, holding nearly half of the total balances (49%).
 
