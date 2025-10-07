@@ -284,7 +284,7 @@ fig_bar.write_image("total_balance_bar.png")
 fig_map.show()
 fig_bar.show()
 ```
-####Insights:
+#### Insights:
 - California dominates with nearly double the balance of Nevada, indicating it is the largest concentration of funds.
 - Nevada holds a strong second position but far behind California.
 - Wyoming and Oregon lag significantly, holding comparatively minor balances.
@@ -375,30 +375,21 @@ fig_job_pie.write_image("balance_by_job_classification_pie.png")
 # Show chart
 fig_job_pie.show()
 ```
-Insights:
-White Collar employees dominate the distribution, holding nearly half of the total balances (49%).
-
-Blue Collar and Other groups contribute almost equally (about one-quarter each).
-
-The distribution highlights a skew towards White Collar customers, suggesting they manage higher balances compared to others.
-
-4. Balance Distribution by Marital Status
+#### Insights:
+- White Collar employees dominate the distribution, holding nearly half of the total balances (49%).
+- Blue Collar and Other groups contribute almost equally (about one-quarter each).
+- The distribution highlights a skew towards White Collar customers, suggesting they manage higher balances compared to others.
+  
+### 4. Balance Distribution by Marital Status
 Goal: Evaluate how total balances are distributed among customers based on their marital status (married, single, divorced).
-
 Chart: Donut Pie Chart – visualizing balance contributions by marital categories.
-
 EDA Type: Univariate categorical analysis (Marital Status → Balance).
-
 Structure:
-
-Married: 146.8M (62%) – highlighted in blue and visually pulled out to emphasize dominance.
-
-Single: 62.8M (26.5%) – shown in red.
-
-Divorced: 27.4M (11.5%) – shown in green.
-
-Labels include exact amounts and percentages for clarity.
-
+- Married: 146.8M (62%) – highlighted in blue and visually pulled out to emphasize dominance.
+- Single: 62.8M (26.5%) – shown in red.
+- Divorced: 27.4M (11.5%) – shown in green.
+- Labels include exact amounts and percentages for clarity.
+```py
 import plotly.express as px
 
 # Aggregate balance by marital status
@@ -424,30 +415,23 @@ fig_marital.write_image("balance_by_marital_status_donut.png")
 
 # Show chart
 fig_marital.show()
-Insights:
-Married customers overwhelmingly dominate the balance distribution, holding nearly two-thirds (62%) of the total.
+```
+#### Insights:
+- Married customers overwhelmingly dominate the balance distribution, holding nearly two-thirds (62%) of the total.
+- Singles account for about a quarter (26.5%), while divorced customers contribute the smallest share (11.5%).
+- The sharp dominance of the married group suggests a strong correlation between marital stability and higher financial balances.
 
-Singles account for about a quarter (26.5%), while divorced customers contribute the smallest share (11.5%).
-
-The sharp dominance of the married group suggests a strong correlation between marital stability and higher financial balances.
-
-5. Total Balance by Month
+### 5. Total Balance by Month
 Goal: Track the month-wise trend of total balances to identify growth patterns, seasonal peaks, and fluctuations over the year.
-
 Chart: Combined Bar + Line Chart – bars show monthly totals, line overlays the trend progression.
-
 EDA Type: Time-series analysis (Univariate numerical variable over time).
-
 Structure:
-
-X-axis: Months (January to December).
-
-Y-axis: Total Balance (in millions).
-
+- X-axis: Months (January to December).
+- Y-axis: Total Balance (in millions).
 Bars: Monthly total balances ranging from 1.8M (February) to 34M (September).
-
 Line: Overlaid trend line (red) connects monthly values to highlight changes and direction.
 
+```py
 import plotly.express as px
 
 # Aggregate balance by month
@@ -486,34 +470,25 @@ fig_month.write_image("balance_by_month_line_bar.png")
 
 # Show interactive chart
 fig_month.show()
-Insights:
-Balances were very low in the first quarter (below 3M through February–March).
+```
+#### Insights:
+- Balances were very low in the first quarter (below 3M through February–March).
+- A sharp increase began in April (12M) and peaked in September (34M).
+- The last quarter (October–December) stabilized around 30M, maintaining strong totals after the September peak.
+- The chart reveals both seasonal growth and sustained momentum, suggesting a major driver of account activity in mid-year (likely business cycles, campaigns, or customer onboarding).
 
-A sharp increase began in April (12M) and peaked in September (34M).
-
-The last quarter (October–December) stabilized around 30M, maintaining strong totals after the September peak.
-
-The chart reveals both seasonal growth and sustained momentum, suggesting a major driver of account activity in mid-year (likely business cycles, campaigns, or customer onboarding).
-
-6. Growth Chart – Balance by Job Classification
+### 6. Growth Chart – Balance by Job Classification
 Goal: Identify how different job classifications contribute cumulatively to total balances, highlighting which groups drive the largest share of growth.
-
 Chart: Pareto-style Combo Chart – Bars show balances by job type, and a cumulative growth line (percentage) highlights cumulative contribution.
-
 EDA Type: Multivariate analysis (categorical variable vs. balance with cumulative percentage).
-
 Structure:
-
-X-axis: Job Classification (White Collar, Blue Collar, Other).
-
-Left Y-axis: Total Balance (absolute values shown above bars).
-
-Right Y-axis: Cumulative % (growth contribution).
-
+- X-axis: Job Classification (White Collar, Blue Collar, Other).
+- Left Y-axis: Total Balance (absolute values shown above bars).
+- Right Y-axis: Cumulative % (growth contribution).
 Bars: White Collar = 116.1M, Blue Collar = 61.3M, Other = 59.6M.
-
 Line: Cumulative growth percentage rising from ~55% (after White Collar) to 100% (after Other).
 
+```py
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -562,36 +537,26 @@ fig_growth.write_image("growth_chart_balance_by_job_classification.png")
 
 # Show chart
 fig_growth.show()
-Insights:
-White Collar employees alone contribute over half of the total balances (~55%), establishing them as the dominant group.
+```
+#### Insights:
+- White Collar employees alone contribute over half of the total balances (~55%), establishing them as the dominant group.
+- Blue Collar adds another ~29%, pushing the cumulative contribution above 80%.
+- “Other” group contributes the remaining ~20%, completing the distribution.
+- The growth chart clearly shows a Pareto-like effect: a small segment (White Collar) drives the majority of balances.
 
-Blue Collar adds another ~29%, pushing the cumulative contribution above 80%.
-
-“Other” group contributes the remaining ~20%, completing the distribution.
-
-The growth chart clearly shows a Pareto-like effect: a small segment (White Collar) drives the majority of balances.
-
-7. Balance by House Loan and Other Loan
+### 7. Balance by House Loan and Other Loan
 Goal: Compare total balances between customers with and without house loans, while also analyzing how “other loans” affect those balances.
-
 Chart: Stacked Bar Chart – primary grouping by house loan status, stacked segments for other loan status.
-
 EDA Type: Multivariate categorical analysis (House Loan × Other Loan → Balance).
-
 Structure:
-
-X-axis: House Loan categories (Yes / No).
-
-Y-axis: Total Balance (in millions).
-
+- X-axis: House Loan categories (Yes / No).
+- Y-axis: Total Balance (in millions).
 Bars:
+- House Loan = No → 90M (no other loan) + 15M (with other loan) = 105M total.
+- House Loan = Yes → 110M (no other loan) + 20M (with other loan) = 130M total.
+- Colors: Blue = no other loan, Red = yes other loan. Values displayed inside each segment.
 
-House Loan = No → 90M (no other loan) + 15M (with other loan) = 105M total.
-
-House Loan = Yes → 110M (no other loan) + 20M (with other loan) = 130M total.
-
-Colors: Blue = no other loan, Red = yes other loan. Values displayed inside each segment.
-
+```py
 import plotly.express as px
 
 # Aggregate balance by house loan and other loan
@@ -626,32 +591,24 @@ fig_stack.write_image("balance_by_houseloan_otherloan_stacked.png")
 
 # Show interactive chart
 fig_stack.show()
-Insights:
-Customers with house loans contribute the majority of balances (130M vs 105M).
+```
+#### Insights:
+- Customers with house loans contribute the majority of balances (130M vs 105M).
+- Within each group, balances without other loans are significantly higher than with other loans.
+- “Other loans” contribute only a small fraction (15–20M), suggesting they play a limited role in overall balances.
+- The dominance of house loan holders suggests strong links between homeownership and higher account balances.
 
-Within each group, balances without other loans are significantly higher than with other loans.
-
-“Other loans” contribute only a small fraction (15–20M), suggesting they play a limited role in overall balances.
-
-The dominance of house loan holders suggests strong links between homeownership and higher account balances.
-
-8. Correlation Heatmap of Numeric Features
+### 8. Correlation Heatmap of Numeric Features
 Goal: Examine the relationships between numerical features in the dataset to detect patterns, redundancies, or dependencies.
-
 Chart: Heatmap – displaying pairwise correlation values between numeric variables.
-
 EDA Type: Correlation analysis (Multivariate numeric relationships).
-
 Structure:
+- Features compared: customer_id, age, balance, month_num.
+- Color scale: Blue (low/negative correlation) → Red (high/positive correlation).
+- Diagonal values = 1 (self-correlation).
+- Key correlations shown numerically inside cells.
 
-Features compared: customer_id, age, balance, month_num.
-
-Color scale: Blue (low/negative correlation) → Red (high/positive correlation).
-
-Diagonal values = 1 (self-correlation).
-
-Key correlations shown numerically inside cells.
-
+```py
 import plotly.express as px
 
 # Select numeric columns
@@ -686,11 +643,9 @@ fig_corr.update_layout(
 fig_corr.write_image("correlation_heatmap_numeric_interactive.png")
 
 fig_corr.show()
+```
 Insights:
-Customer_id vs. Month_num: Very high correlation (0.98) – suggesting customer IDs were likely generated sequentially by month. This is more of a dataset artifact than a meaningful relationship.
-
-Balance vs. Age: No significant correlation (~0.01) – balance does not depend directly on customer age in this dataset.
-
-Balance vs. Month_num: Very weak correlation (~0.01) – balances do not follow a strict monthly progression.
-
-Overall finding: Aside from the artificial ID–month relationship, numeric features are largely independent, which is good for unbiased analysis.
+- Customer_id vs. Month_num: Very high correlation (0.98) – suggesting customer IDs were likely generated sequentially by month. This is more of a dataset artifact than a meaningful relationship.
+- Balance vs. Age: No significant correlation (~0.01) – balance does not depend directly on customer age in this dataset.
+- Balance vs. Month_num: Very weak correlation (~0.01) – balances do not follow a strict monthly progression.
+- Overall finding: Aside from the artificial ID–month relationship, numeric features are largely independent, which is good for unbiased analysis.
