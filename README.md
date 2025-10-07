@@ -288,14 +288,11 @@ fig_bar.show()
 - The geographical visualization reinforces that the western states carry the majority of balances in this dataset.
 
 ### 2. Balance Distribution by Gender
-Goal: Understand how total account balances are distributed between male and female customers.
-Chart: Donut Pie Chart – dividing total balance into male and female proportions.
-EDA Type: Univariate categorical analysis (Gender → Balance).
-Structure:
-- Two categories: Male and Female.
-- Male: 128.6M (54.3%) shown in blue.
-- Female: 108.3M (45.7%) shown in red.
-- Percentage labels and exact values are displayed inside the chart for clarity.
+- Goal: Understand how total account balances are distributed between male and female customers.
+- Chart: Donut Pie Chart – dividing total balance into male and female proportions.
+- EDA Type: Univariate categorical analysis (Gender → Balance).
+- Structure: Two categories: Male and Female. Male: 128.6M (54.3%) shown in blue. Female: 108.3M (45.7%) shown in red. Percentage labels and exact values are displayed inside the chart for clarity.
+
 ```py
 import plotly.express as px
 
@@ -378,14 +375,11 @@ fig_job_pie.show()
 - The distribution highlights a skew towards White Collar customers, suggesting they manage higher balances compared to others.
   
 ### 4. Balance Distribution by Marital Status
-Goal: Evaluate how total balances are distributed among customers based on their marital status (married, single, divorced).
-Chart: Donut Pie Chart – visualizing balance contributions by marital categories.
-EDA Type: Univariate categorical analysis (Marital Status → Balance).
-Structure:
-- Married: 146.8M (62%) – highlighted in blue and visually pulled out to emphasize dominance.
-- Single: 62.8M (26.5%) – shown in red.
-- Divorced: 27.4M (11.5%) – shown in green.
-- Labels include exact amounts and percentages for clarity.
+- Goal: Evaluate how total balances are distributed among customers based on their marital status (married, single, divorced).
+- Chart: Donut Pie Chart – visualizing balance contributions by marital categories.
+- EDA Type: Univariate categorical analysis (Marital Status → Balance).
+- Structure: Married: 146.8M (62%) – highlighted in blue and visually pulled out to emphasize dominance. Single: 62.8M (26.5%) – shown in red. Divorced: 27.4M (11.5%) – shown in green. Labels include exact amounts and percentages for clarity.
+
 ```py
 import plotly.express as px
 
@@ -419,14 +413,10 @@ fig_marital.show()
 - The sharp dominance of the married group suggests a strong correlation between marital stability and higher financial balances.
 
 ### 5. Total Balance by Month
-Goal: Track the month-wise trend of total balances to identify growth patterns, seasonal peaks, and fluctuations over the year.
-Chart: Combined Bar + Line Chart – bars show monthly totals, line overlays the trend progression.
-EDA Type: Time-series analysis (Univariate numerical variable over time).
-Structure:
-- X-axis: Months (January to December).
-- Y-axis: Total Balance (in millions).
-Bars: Monthly total balances ranging from 1.8M (February) to 34M (September).
-Line: Overlaid trend line (red) connects monthly values to highlight changes and direction.
+- Goal: Track the month-wise trend of total balances to identify growth patterns, seasonal peaks, and fluctuations over the year.
+- Chart: Combined Bar + Line Chart – bars show monthly totals, line overlays the trend progression.
+- EDA Type: Time-series analysis (Univariate numerical variable over time).
+- Structure: X-axis - Months (January to December). Y-axis - Total Balance (in millions). Bars - Monthly total balances ranging from 1.8M (February) to 34M (September). Line - Overlaid trend line (red) connects monthly values to highlight changes and direction.
 
 ```py
 import plotly.express as px
@@ -475,15 +465,10 @@ fig_month.show()
 - The chart reveals both seasonal growth and sustained momentum, suggesting a major driver of account activity in mid-year (likely business cycles, campaigns, or customer onboarding).
 
 ### 6. Growth Chart – Balance by Job Classification
-Goal: Identify how different job classifications contribute cumulatively to total balances, highlighting which groups drive the largest share of growth.
-Chart: Pareto-style Combo Chart – Bars show balances by job type, and a cumulative growth line (percentage) highlights cumulative contribution.
-EDA Type: Multivariate analysis (categorical variable vs. balance with cumulative percentage).
-Structure:
-- X-axis: Job Classification (White Collar, Blue Collar, Other).
-- Left Y-axis: Total Balance (absolute values shown above bars).
-- Right Y-axis: Cumulative % (growth contribution).
-Bars: White Collar = 116.1M, Blue Collar = 61.3M, Other = 59.6M.
-Line: Cumulative growth percentage rising from ~55% (after White Collar) to 100% (after Other).
+- Goal: Identify how different job classifications contribute cumulatively to total balances, highlighting which groups drive the largest share of growth.
+- Chart: Pareto-style Combo Chart – Bars show balances by job type, and a cumulative growth line (percentage) highlights cumulative contribution.
+- EDA Type: Multivariate analysis (categorical variable vs. balance with cumulative percentage).
+- Structure: X-axis - Job Classification (White Collar, Blue Collar, Other). Left Y-axis - Total Balance (absolute values shown above bars). Right Y-axis-  Cumulative % (growth contribution). Bars: White Collar = 116.1M, Blue Collar = 61.3M, Other = 59.6M. Line - Cumulative growth percentage rising from ~55% (after White Collar) to 100% (after Other).
 
 ```py
 import pandas as pd
@@ -542,15 +527,11 @@ fig_growth.show()
 - The growth chart clearly shows a Pareto-like effect: a small segment (White Collar) drives the majority of balances.
 
 ### 7. Balance by House Loan and Other Loan
-Goal: Compare total balances between customers with and without house loans, while also analyzing how “other loans” affect those balances.
-Chart: Stacked Bar Chart – primary grouping by house loan status, stacked segments for other loan status.
-EDA Type: Multivariate categorical analysis (House Loan × Other Loan → Balance).
-Structure:
-- X-axis: House Loan categories (Yes / No).
-- Y-axis: Total Balance (in millions).
-Bars:
-- House Loan = No → 90M (no other loan) + 15M (with other loan) = 105M total.
-- House Loan = Yes → 110M (no other loan) + 20M (with other loan) = 130M total.
+- Goal: Compare total balances between customers with and without house loans, while also analyzing how “other loans” affect those balances.
+- Chart: Stacked Bar Chart – primary grouping by house loan status, stacked segments for other loan status.
+- EDA Type: Multivariate categorical analysis (House Loan × Other Loan → Balance).
+- Structure: X-axis - House Loan categories (Yes / No). Y-axis - Total Balance (in millions).
+- Bars: House Loan = No → 90M (no other loan) + 15M (with other loan) = 105M total. House Loan = Yes → 110M (no other loan) + 20M (with other loan) = 130M total.
 - Colors: Blue = no other loan, Red = yes other loan. Values displayed inside each segment.
 
 ```py
@@ -596,11 +577,10 @@ fig_stack.show()
 - The dominance of house loan holders suggests strong links between homeownership and higher account balances.
 
 ### 8. Correlation Heatmap of Numeric Features
-Goal: Examine the relationships between numerical features in the dataset to detect patterns, redundancies, or dependencies.
-Chart: Heatmap – displaying pairwise correlation values between numeric variables.
-EDA Type: Correlation analysis (Multivariate numeric relationships).
-Structure:
-- Features compared: customer_id, age, balance, month_num.
+- Goal: Examine the relationships between numerical features in the dataset to detect patterns, redundancies, or dependencies.
+- Chart: Heatmap – displaying pairwise correlation values between numeric variables.
+- EDA Type: Correlation analysis (Multivariate numeric relationships).
+- Structure: Features compared: customer_id, age, balance, month_num.
 - Color scale: Blue (low/negative correlation) → Red (high/positive correlation).
 - Diagonal values = 1 (self-correlation).
 - Key correlations shown numerically inside cells.
