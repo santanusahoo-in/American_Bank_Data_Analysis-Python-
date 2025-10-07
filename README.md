@@ -292,7 +292,9 @@ fig_bar.write_image("total_balance_bar.png")
 fig_map.show()
 fig_bar.show()
 ```
-(Image/total_balance_map.png)
+[Total Balance by State](Image/total_balance_map.png)
+[Total Balance by State](Image/total_balance_bar.png)
+
 #### Insights:
 - California dominates with nearly double the balance of Nevada, indicating it is the largest concentration of funds.
 - Nevada holds a strong second position but far behind California.
