@@ -119,16 +119,21 @@ df['balance'] = pd.to_numeric(df['balance'])
 ```py
 total_balance = df['balance'].sum()
 ```
-#### Print in proper format with commas
+---
+
+## Analytical Calculation
+#### Total Balance:
 ```py
 print("Total balance: {:,.2f}".format(total_balance))
 Total balance: 236,926,531.58
 ```
+#### Total Customers:
 ```py
 total_customers = df.shape[0]
 print("Total customers:", total_customers)
 Total customers: 3994
 ```
+#### Total Customers by States:
 ```py
 customer_count = df['state'].value_counts().reset_index()
 customer_count.columns = ['state', 'total_customers']
@@ -139,6 +144,7 @@ print(customer_count)
 2     Wyoming              516
 3      Oregon              211
 ```
+#### Total Customers by Marital Status:
 ```py
 df['marital'].value_counts()
 marital
@@ -147,11 +153,13 @@ single      1054
 divorced     454
 Name: count, dtype: int64
 ```
+#### Average Balance:
 ```py
 avg_balance = df['balance'].mean()
 print("Average balance: {:,.2f}".format(avg_balance))
 Average balance: 59,320.61
 ```
+#### Total Customers by Genders:
 ```py
 gender_counts = df['gender'].value_counts().reset_index()
 gender_counts.columns = ['gender', 'total_customers']
@@ -160,7 +168,7 @@ print(gender_counts)
 0    Male             2152
 1  Female             1842
 ```
-#### Total balance by gender
+#### Total balance by gender:
 ```py
 gender_balance = df.groupby('gender')['balance'].sum().reset_index()
 print(gender_balance)
@@ -168,7 +176,7 @@ print(gender_balance)
 0  Female  1.083359e+08
 1    Male  1.285906e+08
 ```
-#### Total balance by job classification
+#### Total balance by job classification:
 ```py
 job_balance = df.groupby('job_classification')['balance'].sum().reset_index()
 print(job_balance)
@@ -208,6 +216,7 @@ Index(['customer_id', 'full_name', 'gender', 'age', 'state',
       dtype='object')
 ```
 ---
+## EDA:
 
 ### 1. Total Balance Distribution Across U.S. States
 - Goal: Compare the total account balances across U.S. states to identify which states hold the highest financial balance concentration.                                          
