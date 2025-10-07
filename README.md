@@ -207,6 +207,8 @@ Index(['customer_id', 'full_name', 'gender', 'age', 'state',
        'month_num', 'month_name'],
       dtype='object')
 ```
+---
+
 ### 1. Total Balance Distribution Across U.S. States
 - Goal: Compare the total account balances across U.S. states to identify which states hold the highest financial balance concentration.                                          
 - Chart: Choropleth Map – showing geographic distribution of balances by U.S. state. Bar Chart – ranking states by their total balance with values labeled.
@@ -286,6 +288,8 @@ fig_bar.show()
 - Nevada holds a strong second position but far behind California.
 - Wyoming and Oregon lag significantly, holding comparatively minor balances.
 - The geographical visualization reinforces that the western states carry the majority of balances in this dataset.
+
+---
 
 ### 2. Balance Distribution by Gender
 - Goal: Understand how total account balances are distributed between male and female customers.
@@ -373,6 +377,8 @@ fig_job_pie.show()
 - White Collar employees dominate the distribution, holding nearly half of the total balances (49%).
 - Blue Collar and Other groups contribute almost equally (about one-quarter each).
 - The distribution highlights a skew towards White Collar customers, suggesting they manage higher balances compared to others.
+
+---
   
 ### 4. Balance Distribution by Marital Status
 - Goal: Evaluate how total balances are distributed among customers based on their marital status (married, single, divorced).
@@ -411,6 +417,8 @@ fig_marital.show()
 - Married customers overwhelmingly dominate the balance distribution, holding nearly two-thirds (62%) of the total.
 - Singles account for about a quarter (26.5%), while divorced customers contribute the smallest share (11.5%).
 - The sharp dominance of the married group suggests a strong correlation between marital stability and higher financial balances.
+
+---
 
 ### 5. Total Balance by Month
 - Goal: Track the month-wise trend of total balances to identify growth patterns, seasonal peaks, and fluctuations over the year.
@@ -463,6 +471,8 @@ fig_month.show()
 - A sharp increase began in April (12M) and peaked in September (34M).
 - The last quarter (October–December) stabilized around 30M, maintaining strong totals after the September peak.
 - The chart reveals both seasonal growth and sustained momentum, suggesting a major driver of account activity in mid-year (likely business cycles, campaigns, or customer onboarding).
+
+---
 
 ### 6. Growth Chart – Balance by Job Classification
 - Goal: Identify how different job classifications contribute cumulatively to total balances, highlighting which groups drive the largest share of growth.
@@ -526,6 +536,8 @@ fig_growth.show()
 - “Other” group contributes the remaining ~20%, completing the distribution.
 - The growth chart clearly shows a Pareto-like effect: a small segment (White Collar) drives the majority of balances.
 
+---
+
 ### 7. Balance by House Loan and Other Loan
 - Goal: Compare total balances between customers with and without house loans, while also analyzing how “other loans” affect those balances.
 - Chart: Stacked Bar Chart – primary grouping by house loan status, stacked segments for other loan status.
@@ -575,6 +587,8 @@ fig_stack.show()
 - Within each group, balances without other loans are significantly higher than with other loans.
 - “Other loans” contribute only a small fraction (15–20M), suggesting they play a limited role in overall balances.
 - The dominance of house loan holders suggests strong links between homeownership and higher account balances.
+
+---
 
 ### 8. Correlation Heatmap of Numeric Features
 - Goal: Examine the relationships between numerical features in the dataset to detect patterns, redundancies, or dependencies.
