@@ -208,14 +208,10 @@ Index(['customer_id', 'full_name', 'gender', 'age', 'state',
       dtype='object')
 ```
 ### 1. Total Balance Distribution Across U.S. States
-##### Goal: Compare the total account balances across U.S. states to identify which states hold the highest financial balance concentration.                                          
-##### Chart:
-- Choropleth Map – showing geographic distribution of balances by U.S. state.
-- Bar Chart – ranking states by their total balance with values labeled.
-##### EDA Type: Bivariate (categorical: State vs. numerical: Balance).                                                                                                       
-##### Structure:             
-- The map uses a color gradient (yellow = high, purple = low) to visually show balance intensity per state.
-- The bar chart displays four states explicitly: California (130M), Nevada (66M), Wyoming (33M), and Oregon (12M). Values are annotated above the bars for easy comparison.
+- Goal: Compare the total account balances across U.S. states to identify which states hold the highest financial balance concentration.                                          
+- Chart: Choropleth Map – showing geographic distribution of balances by U.S. state. Bar Chart – ranking states by their total balance with values labeled.
+- EDA Type: Bivariate (categorical: State vs. numerical: Balance).                                                                                                       
+- Structure: The map uses a color gradient (yellow = high, purple = low) to visually show balance intensity per state. The bar chart displays four states explicitly: California (130M), Nevada (66M), Wyoming (33M), and Oregon (12M). Values are annotated above the bars for easy comparison.
 
 ```py
 import pandas as pd
