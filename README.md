@@ -27,7 +27,7 @@ Thus, the problem addressed in this project is: *How can exploratory data analys
 - Time-Series Trends – Track monthly balance growth to detect seasonal peaks and long-term trends.
 - Correlation Analysis – Investigate numeric feature relationships to identify hidden dependencies or dataset artifacts.
 - Growth Prioritization – Use Pareto-style growth charts to highlight which customer groups drive the largest share of total balances.
-```py
+```.py
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,19 +35,18 @@ import seaborn as sns
 import plotly.express as px
 import plotly.io as pio
 ```
-```
+```.py
 df = pd.read_csv(r'C:\Users\santa\Downloads\Ab\AmericanBank.csv')
 
 ```
-```
+```.py
 df.head(3)
-
-```
 Customer ID	Full Name	Gender	Age	State	Job Classification	Date Joined	Balance	marital	education	houseloan	otherloan	contact	poutcome	Loan Default
 0	1	Christy Olson	Male	21	California	White Collar	05.Jan.2017	$169,864.42	married	primary	no	no	cellular	unknown	no
 1	2	Dan Peterson	Female	34	Oregon	Blue Collar	06.Jan.2017	$55,102.60	married	secondary	yes	yes	cellular	failure	no
 2	3	Mable Lindsey	Male	46	California	White Collar	07.Jan.2017	$151,546.03	single	tertiary	yes	no	cellular	failure	no
 ```
+```.py
 df.columns
 Index(['Customer ID', 'Full Name', 'Gender', 'Age', 'State',
        'Job Classification', 'Date Joined', ' Balance ', 'marital',
