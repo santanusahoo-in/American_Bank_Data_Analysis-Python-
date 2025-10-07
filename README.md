@@ -41,6 +41,7 @@ df = pd.read_csv(r'C:\Users\santa\Downloads\Ab\AmericanBank.csv')
 ```
 ```.py
 df.head(3)
+
 Customer ID	Full Name	Gender	Age	State	Job Classification	Date Joined	Balance	marital	education	houseloan	otherloan	contact	poutcome	Loan Default
 0	1	Christy Olson	Male	21	California	White Collar	05.Jan.2017	$169,864.42	married	primary	no	no	cellular	unknown	no
 1	2	Dan Peterson	Female	34	Oregon	Blue Collar	06.Jan.2017	$55,102.60	married	secondary	yes	yes	cellular	failure	no
@@ -53,6 +54,8 @@ Index(['Customer ID', 'Full Name', 'Gender', 'Age', 'State',
        'education', 'houseloan', 'otherloan', 'contact', 'poutcome',
        'Loan Default'],
       dtype='object')
+```
+```py
 df.columns = df.columns.str.strip().str.lower()
 df = df.rename(columns={
     'customer id'     : 'customer_id',
@@ -63,11 +66,14 @@ df = df.rename(columns={
     'loan default'    : 'loan_default'
 })
 ```
+```py
 df.columns
 Index(['customer_id', 'full_name', 'gender', 'age', 'state',
        'job_classification', 'date_joined', 'balance', 'marital', 'education',
        'houseloan', 'otherloan', 'contact', 'poutcome', 'loan_default'],
       dtype='object')
+```
+```py
 df.info()
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 3994 entries, 0 to 3993
@@ -91,6 +97,8 @@ Data columns (total 15 columns):
  14  loan_default        3994 non-null   object
 dtypes: int64(2), object(13)
 memory usage: 468.2+ KB
+```
+```py
 df.describe()
 customer_id	age
 count	3994.000000	3994.000000
@@ -101,9 +109,12 @@ min	1.000000	15.000000
 50%	1997.500000	37.000000
 75%	2995.750000	45.000000
 max	3994.000000	64.000000
-# Remove '$' and ',' from the 'balance' column and convert it to numeric
+```
+#### Remove '$' and ',' from the 'balance' column and convert it to numeric
+```py
 df['balance'] = df['balance'].astype(str).str.replace('$', '').str.replace(',', '', regex=False)
 df['balance'] = pd.to_numeric(df['balance'])
+```
 
 # Make sure you sum only the 'balance' column
 total_balance = df['balance'].sum()
