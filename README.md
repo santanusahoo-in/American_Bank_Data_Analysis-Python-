@@ -1,4 +1,4 @@
-# American_Bank_Data_Analysis:
+# American Bank Customer Analysis:
 
 ## Project Summary
 This project focuses on exploratory data analysis (EDA) of customer account balances to uncover meaningful financial patterns across demographics, geography, time, and loan status. Using a combination of visualizations—including bar charts, pie charts, choropleth maps, growth charts, stacked charts, and correlation heatmaps—the analysis provides insights into customer financial behavior.
