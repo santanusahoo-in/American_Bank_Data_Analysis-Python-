@@ -385,6 +385,7 @@ fig_job_pie.write_image("balance_by_job_classification_pie.png")
 # Show chart
 fig_job_pie.show()
 ```
+![Balance Distribution by Gender](Image/balance_by_gender_pie.png)
 #### Insights:
 - White Collar employees dominate the distribution, holding nearly half of the total balances (49%).
 - Blue Collar and Other groups contribute almost equally (about one-quarter each).
@@ -425,6 +426,7 @@ fig_marital.write_image("balance_by_marital_status_donut.png")
 # Show chart
 fig_marital.show()
 ```
+![Balance Distribution by Marital Status](Image/balance_by_marital_status_donut.png)
 #### Insights:
 - Married customers overwhelmingly dominate the balance distribution, holding nearly two-thirds (62%) of the total.
 - Singles account for about a quarter (26.5%), while divorced customers contribute the smallest share (11.5%).
@@ -478,6 +480,7 @@ fig_month.write_image("balance_by_month_line_bar.png")
 # Show interactive chart
 fig_month.show()
 ```
+![Total Balance by Month](Image/balance_by_month_line_bar.png)
 #### Insights:
 - Balances were very low in the first quarter (below 3M through February–March).
 - A sharp increase began in April (12M) and peaked in September (34M).
@@ -542,6 +545,7 @@ fig_growth.write_image("growth_chart_balance_by_job_classification.png")
 # Show chart
 fig_growth.show()
 ```
+![Growth Chart](Image/growth_chart_balance_by_job_classification.png)
 #### Insights:
 - White Collar employees alone contribute over half of the total balances (~55%), establishing them as the dominant group.
 - Blue Collar adds another ~29%, pushing the cumulative contribution above 80%.
@@ -594,6 +598,7 @@ fig_stack.write_image("balance_by_houseloan_otherloan_stacked.png")
 # Show interactive chart
 fig_stack.show()
 ```
+![Balance by House Loan and Other Loan](Image/balance_by_houseloan_otherloan_stacked.png)
 #### Insights:
 - Customers with house loans contribute the majority of balances (130M vs 105M).
 - Within each group, balances without other loans are significantly higher than with other loans.
@@ -647,6 +652,7 @@ fig_corr.write_image("correlation_heatmap_numeric_interactive.png")
 
 fig_corr.show()
 ```
+![Heatmap](Image/correlation_heatmap_numeric_interactive.png)
 Insights:
 - Customer_id vs. Month_num: Very high correlation (0.98) – suggesting customer IDs were likely generated sequentially by month. This is more of a dataset artifact than a meaningful relationship.
 - Balance vs. Age: No significant correlation (~0.01) – balance does not depend directly on customer age in this dataset.
